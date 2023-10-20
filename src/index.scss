@@ -7,6 +7,10 @@
   font-family: chinese_draw !important;
 }
 
+.tl-container {
+    z-index: 0;
+}
+
 .whiteboard-wrapper,
 .whiteboard-component {
   display: flex;
