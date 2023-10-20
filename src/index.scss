@@ -1,26 +1,396 @@
-#helloPanel {
-    border: 1px rgb(189, 119, 119) dashed;
+@font-face {
+  font-family: chinese_draw;
+  src: url("/plugins/siyuan-plugin-whiteboard/assets/fonts/Chinese.woff2");
 }
 
-.plugin-sample {
-    &__custom-tab {
-        background-color: var(--b3-theme-background);
-        height: 100%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.tl-text-shape__wrapper[data-font='draw'] {
+  font-family: chinese_draw !important;
+}
 
-    &__custom-dock {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.whiteboard-wrapper,
+.whiteboard-component {
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
 
-    &__time {
-        background: var(--b3-card-info-background);
-        border-radius: 4px;
-        padding: 2px 8px;
-    }
+.whiteboard-wrapper svg {
+  fill: none;
+  display: initial;
+}
+
+.whiteboard-wrapper {
+  height: 100%;
+  margin: 0px;
+  background-color: white;
+}
+
+.context-menu-option__shortcut {
+  background-color: transparent !important;
+}
+
+.block-language-whiteboard {
+  text-align: center;
+}
+
+.whiteboard .github-corner {
+  display: none;
+}
+
+img.whiteboard-embedded-img {
+  width: 100%;
+}
+
+img.whiteboard-svg-right-wrap {
+  float: right;
+  margin: 0px 0px 20px 20px;
+}
+
+img.whiteboard-svg-left-wrap {
+  float: left;
+  margin: 0px 35px 20px 0px;
+}
+
+img.whiteboard-svg-right {
+  float: right;
+}
+
+.whiteboard-svg-center {
+  text-align: center;
+}
+
+img.whiteboard-svg-left {
+  float: left;
+}
+
+div.whiteboard-svg-right,
+div.whiteboard-svg-left {
+  display: table;
+  width: 100%;
+}
+
+button.ToolIcon_type_button[title="Export"] {
+  display: none;
+}
+
+.whiteboard-prompt-div {
+  display: flex;
+  max-width: 800px;
+}
+
+.whiteboard-prompt-form {
+  display: flex;
+  flex-grow: 1;
+}
+
+.whiteboard-prompt-input {
+  flex-grow: 1;
+}
+
+.whiteboard-prompt-button {
+  width: 9em;
+}
+
+.whiteboard-prompt-buttons-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+li[data-testid] {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.whiteboard .context-menu-option-separator {
+  margin: 4px !important;
+}
+
+.whiteboard .popover {
+  padding: 0 !important;
+  border-color: transparent !important;
+  border: 0 !important;
+  box-shadow: 0 !important;
+  background-color: transparent !important;
+}
+
+.disable-zen-mode--visible {
+  color: var(--text-primary-color);
+}
+
+.disable-zen-mode {
+  width: 9em !important;
+}
+
+.ex-coffee-div {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.whiteboard-scriptengine-install td > img {
+  width: 100%;
+  max-width: 800px;
+}
+
+.whiteboard-scriptengine-install img.coffee {
+  width: 130px;
+}
+
+.whiteboard-scriptengine-install tr {
+  vertical-align: top;
+}
+
+.whiteboard-scriptengine-install table {
+  max-width: 130ch;
+}
+
+.whiteboard-scriptengine-install td.label {
+  min-width: 11ch;
+  font-weight: bold;
+  padding-right: 5px;
+}
+
+.whiteboard-scriptengine-install td.data {
+  width: 100%;
+}
+
+.whiteboard-scriptengine-install .modal-content {
+  max-width: 130ch;
+  user-select: text;
+}
+
+.whiteboard-scriptengine-install .modal {
+  max-height: 90%;
+  width: auto;
+}
+
+.whiteboard-prompt-center {
+  text-align: center !important;
+}
+
+.whiteboard-prompt-center button {
+  margin: 0 10px;
+}
+
+.whiteboard-prompt-center.filepath {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.whiteboard-dirty {
+  color: red;
+}
+
+.workspace-leaf-content .whiteboard-view {
+  padding: 0px 1px;
+  /*1px so on ipad swipe in from left and right still works*/
+  overflow: hidden;
+}
+
+.whiteboard-videoWrapper {
+  max-width: 600px;
+}
+
+.whiteboard-videoWrapper div {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 0 auto;
+}
+
+.whiteboard-videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.whiteboard-release .modal-content {
+  padding-right: 5px;
+  margin-right: -5px;
+  user-select: text;
+}
+
+.whiteboard-release .modal {
+  max-height: 80%;
+  max-width: 42em;
+}
+
+.whiteboard .Island .scrollbar {
+  --scrollbar-thumb-bg: silver;
+}
+
+.whiteboard .ToolIcon__icon img {
+  height: 1em;
+}
+
+.whiteboard-scriptengine-install tbody > tr > td > div > img {
+  height: 20px;
+  background-color: silver;
+  padding: 2px;
+}
+
+.whiteboard-scriptengine-install tbody > tr > td > div {
+  width: 50px;
+  display: inline-block;
+}
+
+.whiteboard-release p > a > img {
+  width: 100%;
+}
+
+.whiteboard .context-menu-option {
+  box-shadow: none;
+}
+
+textarea.whiteboard-wysiwyg {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.is-tablet .whiteboard button,
+.is-mobile .whiteboard button {
+  padding: initial;
+  height: 1.8rem;
+}
+
+.whiteboard button,
+.ToolIcon button {
+  box-shadow: none;
+  justify-content: initial;
+}
+
+.whiteboard {
+  --default-button-size: 2rem !important;
+  --default-icon-size: 1rem !important;
+  --lg-button-size: 1.8rem !important;
+  --lg-icon-size: 1rem !important;
+}
+
+.whiteboard .tray-zoom {
+  pointer-events: initial;
+  padding-bottom: 0.05rem;
+  padding-top: 0.05rem;
+}
+
+.whiteboard-container.theme--dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* https://discordapp.com/channels/686053708261228577/989603365606531104/1041266507256184863 */
+
+/*.workspace-leaf {
+      contain: none !important;
+  }*/
+
+.color-picker-content {
+  overflow-y: auto;
+  max-height: 10rem;
+}
+
+.whiteboard .FixedSideContainer_side_top {
+  top: 0.3rem;
+}
+
+.whiteboard .ToolIcon__keybinding {
+  font-size: 0.45rem !important;
+}
+
+.Island > .Stack > .Stack {
+  padding: 0.2rem;
+}
+
+label.color-input-container > input {
+  max-width: 5rem;
+}
+
+.whiteboard .FixedSideContainer_side_top {
+  left: 10px !important;
+  top: 10px !important;
+  right: 10px !important;
+  bottom: 10px !important;
+}
+
+.whiteboard-hidden {
+  display: none !important;
+}
+
+.whiteboard .panelColumn .buttonList {
+  max-width: 13rem;
+}
+
+.whiteboard button {
+  width: initial;
+}
+
+.whiteboard input[type="color"] {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.whiteboard input[type="color"]::-webkit-color-swatch {
+  height: 1.65rem;
+}
+
+.whiteboard input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.whiteboard-settings input {
+  min-width: 10em;
+}
+
+div.whiteboard-draginfo {
+  position: absolute;
+  z-index: 1000;
+  color: var(--text-normal);
+  padding: 3px;
+  background: var(--color-base-40);
+  display: block;
+  border-radius: 5px;
+}
+
+.whiteboard [data-radix-popper-content-wrapper] {
+  position: absolute !important;
+}
+
+.plugin-whiteboard-dock {
+  padding: 0px;
+}
+
+.plugin-whiteboard-dock .whiteboard-draw {
+  padding: 4px;
+  margin: 2px 6px;
+  font-size: 16px;
+}
+
+.plugin-whiteboard-dock .whiteboard-draw .fileicon {
+  display: none;
+  margin-left: 4px;
+}
+
+.plugin-whiteboard-dock .whiteboard-draw:hover .fileicon {
+  display: inline;
+}
+
+.plugin-whiteboard-dock .whiteboard-draw:hover {
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--b3-list-background);
+}
+
+.plugin-whiteboard-dock .whiteboard-draw svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
 }

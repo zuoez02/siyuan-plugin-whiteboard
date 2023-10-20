@@ -3,7 +3,8 @@ import { defineConfig, loadEnv } from "vite"
 import minimist from "minimist"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 import livereload from "rollup-plugin-livereload"
-import { svelte } from "@sveltejs/vite-plugin-svelte"
+import react from '@vitejs/plugin-react'
+
 import zipPack from "vite-plugin-zip-pack";
 import fg from 'fast-glob';
 
@@ -23,7 +24,7 @@ export default defineConfig({
     },
 
     plugins: [
-        svelte(),
+        react(),
 
         viteStaticCopy({
             targets: [
@@ -47,6 +48,26 @@ export default defineConfig({
                     src: "./src/i18n/**",
                     dest: "./i18n/",
                 },
+                {
+                    src: './node_modules/@tldraw/assets/embed-icons',
+                    dest: './assets/',
+                },
+                {
+                    src: './node_modules/@tldraw/assets/fonts',
+                    dest: './assets/',
+                },
+                {
+                    src: './node_modules/@tldraw/assets/icons',
+                    dest: './assets/',
+                },
+                {
+                    src: './node_modules/@tldraw/assets/translations',
+                    dest: './assets/',
+                },
+                {
+                    src: './assets/Chinese.woff2',
+                    dest: './assets/fonts/'
+                }
             ],
         }),
     ],

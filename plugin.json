@@ -1,13 +1,13 @@
 {
-  "name": "plugin-sample-vite-svelte",
-  "author": "frostime",
-  "url": "https://github.com/siyuan-note/plugin-sample-vite-svelte",
+  "name": "siyuan-plugin-whiteboard",
+  "author": "zuoez02",
+  "url": "https://github.com/左恩镇/siyuan-plugin-whiteboard",
   "version": "0.2.3",
   "minAppVersion": "2.10.3",
   "backends": ["all"],
   "frontends": ["all"],
   "displayName": {
-    "en_US": "Plugin sample with vite and svelte",
+    "en_US": "Whiteboard",
     "zh_CN": "插件样例 vite + svelte 版"
   },
   "description": {

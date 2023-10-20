@@ -13,8 +13,6 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.3",
-    "@tsconfig/svelte": "^4.0.1",
     "@types/node": "^20.2.0",
     "eslint": "^8.42.0",
     "fast-glob": "^3.2.12",
@@ -23,11 +21,20 @@
     "rollup-plugin-livereload": "^2.0.5",
     "sass": "^1.62.1",
     "siyuan": "0.8.3",
-    "svelte": "^3.57.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.7",
     "vite-plugin-static-copy": "^0.15.0",
     "vite-plugin-zip-pack": "^1.0.5"
+  },
+  "dependencies": {
+    "@tldraw/assets": "2.0.0-canary.23ab6ff870f9",
+    "@tldraw/tldraw": "2.0.0-canary.23ab6ff870f9",
+    "@types/react": "^18.2.30",
+    "@types/react-dom": "^18.2.14",
+    "@vitejs/plugin-react": "^4.1.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
