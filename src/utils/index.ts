@@ -52,7 +52,7 @@ export async function initWhiteboardDock(plugin) {
     config: {
       position: "LeftBottom",
       size: { width: 200, height: 0 },
-      icon: "iconAdd",
+      icon: "iconWhiteboard",
       title: "白板",
     },
     data: {

@@ -2,17 +2,17 @@
   "name": "siyuan-plugin-whiteboard",
   "author": "zuoez02",
   "url": "https://github.com/左恩镇/siyuan-plugin-whiteboard",
-  "version": "0.2.3",
+  "version": "0.1.0",
   "minAppVersion": "2.10.3",
   "backends": ["all"],
   "frontends": ["all"],
   "displayName": {
-    "en_US": "Whiteboard",
-    "zh_CN": "插件样例 vite + svelte 版"
+    "en_US": "Tldraw Whiteboard",
+    "zh_CN": "Tldraw白板"
   },
   "description": {
-    "en_US": "SiYuan plugin sample with vite and svelte",
-    "zh_CN": "使用 vite 和 svelte 开发的思源插件样例"
+    "en_US": "Whiteboard based on tldraw",
+    "zh_CN": "使用Tldraw构建的思源白板插件"
   },
   "readme": {
     "en_US": "README.md",
@@ -20,7 +20,7 @@
   },
   "funding": {
     "custom": [
-      "https://afdian.net/a/frostime"
+      "https://afdian.net/a/zuoez02"
     ]
   }
 }

@@ -65,7 +65,7 @@ export default defineConfig({
                     dest: './assets/',
                 },
                 {
-                    src: './assets/Chinese.woff2',
+                    src: './asset/Chinese.woff2',
                     dest: './assets/fonts/'
                 }
             ],

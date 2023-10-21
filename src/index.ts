@@ -1,7 +1,7 @@
+import { icon } from './assets/icon';
 import { Plugin, openTab } from "siyuan";
 import { initWhiteboardTab, initWhiteboardDock } from "./utils";
 import './index.scss';
-
 
 export default class WhiteboardPlugin extends Plugin {
     tab: any;
@@ -10,7 +10,7 @@ export default class WhiteboardPlugin extends Plugin {
     onload() {
         this.tab = null;
         this.tabs = [];
-
+        this.addIcons(icon);
         initWhiteboardDock(this);
         this.tab = initWhiteboardTab(this);
     }
