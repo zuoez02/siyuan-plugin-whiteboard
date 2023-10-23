@@ -1,12 +1,12 @@
 {
-  "name": "plugin-sample-vite-svelte",
+  "name": "siyuan-plugin-whiteboard",
   "version": "0.2.3",
   "type": "module",
-  "description": "",
-  "repository": "",
-  "homepage": "",
-  "author": "",
-  "license": "GPL-3.0",
+  "description": "Siyuan whiteboard based on Tldraw",
+  "repository": "https://github.com/zuoez02/siyuan-plugin-whiteboard",
+  "homepage": "https://github.com/zuoez02/siyuan-plugin-whiteboard",
+  "author": "zuoez02",
+  "license": "MIT",
   "scripts": {
     "make-link": "node  --no-warnings ./scripts/make_dev_link.js",
     "dev": "vite build --watch",
@@ -28,8 +28,8 @@
     "vite-plugin-zip-pack": "^1.0.5"
   },
   "dependencies": {
-    "@tldraw/assets": "2.0.0-canary.23ab6ff870f9",
-    "@tldraw/tldraw": "2.0.0-canary.23ab6ff870f9",
+    "@tldraw/assets": "2.0.0-alpha.17",
+    "@tldraw/tldraw": "2.0.0-alpha.17",
     "@types/react": "^18.2.30",
     "@types/react-dom": "^18.2.14",
     "@vitejs/plugin-react": "^4.1.0",

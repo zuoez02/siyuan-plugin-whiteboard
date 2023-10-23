@@ -23,7 +23,6 @@ export const Tab = (props) => {
         e.store.loadSnapshot(initData);
       }
       e.store.listen(() => save(e));
-      console.log('init');
     }
   };
 
@@ -37,7 +36,6 @@ export const Tab = (props) => {
   }
 
   function saveNow(e) {
-    console.log('save');
     const json = e.store.getSnapshot();
     saveData(realName, json);
   }
