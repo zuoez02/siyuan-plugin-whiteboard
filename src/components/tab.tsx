@@ -1,4 +1,4 @@
-import { Fragment, useState, useCallback, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { Tldraw, Editor } from "@tldraw/tldraw";
 import { getAssetUrls } from "@tldraw/assets/selfHosted";
 
@@ -10,15 +10,22 @@ import { uiOverrides } from "@/whiteboard/ui-overrides";
 export const Tab = (props) => {
   const initData = props.initData;
   const realName = props.name;
-  const [editor, setEditor] = useState<Editor>();
+  const [editor, setEditor] = useState<Editor>(null);
 
   const assetUrls = getAssetUrls({
     baseUrl: "/plugins/siyuan-plugin-whiteboard/assets/",
   });
 
-  const setAppToState = useCallback((editor: Editor) => {
-    setEditor(editor);
-  }, []);
+  const setAppToState = (e: Editor) => {
+    if (!editor) {
+      setEditor(e);
+      if (Object.keys(initData).length) {
+        e.store.loadSnapshot(initData);
+      }
+      e.store.listen(() => save(e));
+      console.log('init');
+    }
+  };
 
   let timer;
 
@@ -29,32 +36,24 @@ export const Tab = (props) => {
     timer = setTimeout(() => fn(), timeout);
   }
 
-  function saveNow() {
-    const json = editor.store.getSnapshot();
+  function saveNow(e) {
+    console.log('save');
+    const json = e.store.getSnapshot();
     saveData(realName, json);
   }
 
-  function save() {
+  function save(e) {
     debounce(() => {
-      saveNow();
+      saveNow(e);
     }, 500);
   }
-
-  useEffect(() => {
-    if (!editor) {
-      return;
-    }
-    if (Object.keys(initData).length) {
-      editor.store.loadSnapshot(initData);
-    }
-    editor.store.listen(() => save());
-  }, [editor]);
 
   return (
     <Fragment>
       <div className="whiteboard-component">
         <Tldraw
           onMount={setAppToState}
+          persistenceKey={realName}
           assetUrls={assetUrls}
           overrides={uiOverrides}
         />

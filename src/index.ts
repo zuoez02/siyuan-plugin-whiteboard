@@ -1,3 +1,4 @@
+import './utils/env';
 import { icon } from './assets/icon';
 import { Plugin, openTab } from "siyuan";
 import { initWhiteboardTab, initWhiteboardDock } from "./utils";

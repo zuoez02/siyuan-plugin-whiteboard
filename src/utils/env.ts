@@ -1,0 +1,1 @@
+window.process = Object.assign({ env: {} }, window.process);
