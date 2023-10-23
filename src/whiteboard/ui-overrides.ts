@@ -2,44 +2,48 @@ import { TLUiMenuGroup, TLUiOverrides, menuItem, toolbarItem } from '@tldraw/tld
 
 // In order to see select our custom shape tool, we need to add it to the ui.
 
-let isFullScreen = false;
+// let isFullScreen = false;
 
-function toggleFullscreen(element) {
-    const el = element;
-    if (!el) {
-      return;
-    }
-    if (!isFullScreen) {
-      el.requestFullscreen && el.requestFullscreen();
-    } else {
-      document.exitFullscreen && document.exitFullscreen();
-    }
-    isFullScreen = !isFullScreen;
-  }
+// function toggleFullscreen(element) {
+// 	const el = element;
+// 	if (!el) {
+// 		return;
+// 	}
+// 	if (!isFullScreen) {
+// 		el.requestFullscreen && el.requestFullscreen();
+// 	} else {
+// 		document.exitFullscreen && document.exitFullscreen();
+// 	}
+// 	isFullScreen = !isFullScreen;
+// }
 
 
 export const uiOverrides: TLUiOverrides = {
-	// actions(editor, actions) {
-	// 	// Create a new action or replace an existing one
-	// 	actions['fullscreen'] = {
-	// 		id: 'fullscreen',
-	// 		label: 'fullscreen',
-	// 		readonlyOk: true,
-	// 		kbd: '$u',
-	// 		onSelect() {
-	// 			toggleFullscreen(editor.getContainer());
-	// 		},
-	// 	}
-	// 	return actions
-	// },
-    // menu(editor, menu, { actions }) {
-	// 	// using the findMenuItem helper
-	// 	const fileMenu = findMenuItem(menu, ['menu', 'file'])
-	// 	if (fileMenu.type === 'submenu') {
-	// 		// add the new item to the file menu's children
-	// 		const newMenuItem = menuItem(actions['my-new-action'])
-	// 		fileMenu.children.unshift(newMenuItem)
-	// 	}
-	// 	return menu
-	// },
+	tools(editor, tools) {
+		// Create a tool item in the ui's context.
+		tools.linkDoc = {
+			id: 'linkDoc',
+			icon: 'color',
+			label: 'linkDoc' as any,
+			kbd: 'c',
+			readonlyOk: false,
+			onSelect: () => {
+				editor.setCurrentTool('linkDoc')
+			},
+		}
+		return tools
+	},
+	toolbar(_app, toolbar, { tools }) {
+		// Add the tool item from the context to the toolbar.
+		toolbar.splice(4, 0, toolbarItem(tools.linkDoc))
+		return toolbar
+	},
+	keyboardShortcutsMenu(_app, keyboardShortcutsMenu, { tools }) {
+		// Add the tool item from the context to the keyboard shortcuts dialog.
+		const toolsGroup = keyboardShortcutsMenu.find(
+			(group) => group.id === 'shortcuts-dialog.tools'
+		) as TLUiMenuGroup
+		toolsGroup.children.push(menuItem(tools.linkDoc))
+		return keyboardShortcutsMenu
+	},
 }
