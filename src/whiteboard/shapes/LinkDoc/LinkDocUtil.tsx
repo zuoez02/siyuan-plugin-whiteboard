@@ -6,7 +6,6 @@ import {
 	getDefaultColorTheme,
 	resizeBox,
 } from '@tldraw/tldraw'
-import { useState } from 'react'
 import { linkDocMigrations } from './link-doc-migrations'
 import { linkDocProps } from './link-doc-props'
 import { ILinkDoc } from './link-doc-types'
@@ -33,6 +32,7 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 			w: 300,
 			h: 300,
 			color: 'black',
+			size: 'm',
 			weight: 'regular',
 			docId: '',
 		}
@@ -48,25 +48,35 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 
 	// Render method — the React component that will be rendered for the shape
 	component(shape: ILinkDoc) {
-		const bounds = this.editor.getShapeGeometry(shape).bounds
 		const theme = getDefaultColorTheme({ isDarkMode: this.editor.user.isDarkMode })
 
 		// Unfortunately eslint will think this is a class components
 		// eslint-disable-next-line react-hooks/rules-of-hooks
-		const [count, setCount] = useState(0)
+		let size;
+
+		switch(shape.props.size) {
+			case 's': size = 'small'; break;
+			case 'm': size = 'medium'; break;
+			case 'l': size = 'large'; break;
+			case 'xl': size = 'x-large'; break;
+			default: size = 'medium';
+		}
 
 		return (
 			<HTMLContainer
 				id={shape.id}
+				className='siyuan-doc-card'
 				style={{
 					border: '1px solid black',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					justifyContent: 'center',
+					padding: '8px',
+					overflow: 'hidden',
+					lineHeight: 1.2,
+					userSelect: 'none',
 					pointerEvents: 'all',
+					cursor: 'pointer',
 					backgroundColor: theme[shape.props.color].semi,
 					fontWeight: shape.props.weight,
+					fontSize: size,
 					color: theme[shape.props.color].solid,
 				}}
 			>

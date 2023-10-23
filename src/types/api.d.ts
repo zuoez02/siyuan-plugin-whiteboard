@@ -23,6 +23,11 @@ interface IResGetBlockKramdown {
     kramdown: string;
 }
 
+interface IResGetBlockDom {
+    id: BlockId;
+    dom: string;
+}
+
 interface IResGetChildBlock {
     id: BlockId;
     type: BlockType;

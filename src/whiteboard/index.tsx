@@ -13,7 +13,7 @@ import { ILinkDoc } from "./shapes/LinkDoc/link-doc-types";
 const customShapeUtils = [LinkDocUtil];
 const customTools = [LinkDocTool];
 
-const siyuanLinkRegex = /^\(\((\d+\-\S+) \'\S+\'\)\)$/;
+const siyuanLinkRegex = /^\(\((\d+\-.+) \'.+\'\)\)$/;
 
 export const Whiteboard = (props) => {
   const initData = props.initData;
@@ -33,12 +33,11 @@ export const Whiteboard = (props) => {
       e.store.listen(() => save(e));
 
       e.registerExternalContentHandler("text", ({ type, point, text }) => {
+        const center = point ?? e.viewportPageCenter;
         if (type === "text") {
           if (siyuanLinkRegex.test(text)) {
             const res = siyuanLinkRegex.exec(text);
             const docId = res[1];
-            console.log(res, docId);
-            const center = point ?? e.viewportPageCenter;
             e.createShape<ILinkDoc>({
               type: "linkDoc",
               x: center.x,
@@ -47,8 +46,20 @@ export const Whiteboard = (props) => {
                 docId,
               },
             });
+            
+          } else {
+            e.createShape<TLTextShape>({
+              type: 'text',
+              x: center.x,
+                y: center.y,
+                props: {
+                  text,
+                },
+            })
           }
+          
         }
+
       });
     }
   };
