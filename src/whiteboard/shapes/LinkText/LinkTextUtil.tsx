@@ -6,28 +6,28 @@ import {
 	getDefaultColorTheme,
 	resizeBox,
 } from '@tldraw/tldraw'
-import { linkDocMigrations } from './link-doc-migrations'
-import { linkDocProps } from './link-doc-props'
-import { ILinkDoc } from './link-doc-types'
-import { SiyuanDocCard } from '@/whiteboard/components/siyuan-doc-card'
+import { linkTextMigrations } from './link-text-migrations'
+import { linkTextProps } from './link-text-props'
+import { ILinkText } from './link-text-types'
+import { SiyuanLinkCard } from '@/whiteboard/components/siyuan-link-card'
 
 // A utility class for the card shape. This is where you define
 // the shape's behavior, how it renders (its component and
 // indicator), and how it handles different events.
 
-export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
-	static override type = 'linkDoc' as const
+export class LinkTextUtil extends ShapeUtil<ILinkText> {
+	static override type = 'linkText' as const
 	// A validation schema for the shape's props (optional)
-	static override props = linkDocProps
+	static override props = linkTextProps
 	// Migrations for upgrading shapes (optional)
-	static override migrations = linkDocMigrations
+	static override migrations = linkTextMigrations
 
 	// Flags
-	override isAspectRatioLocked = (_shape: ILinkDoc) => false
-	override canResize = (_shape: ILinkDoc) => true
-	override canBind = (_shape: ILinkDoc) => true
+	override isAspectRatioLocked = (_shape: ILinkText) => false
+	override canResize = (_shape: ILinkText) => true
+	override canBind = (_shape: ILinkText) => true
 
-	getDefaultProps(): ILinkDoc['props'] {
+	getDefaultProps(): ILinkText['props'] {
 		return {
 			w: 300,
 			h: 300,
@@ -35,10 +35,11 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 			size: 'm',
 			weight: 'regular',
 			docId: '',
+			text: '',
 		}
 	}
 
-	getGeometry(shape: ILinkDoc) {
+	getGeometry(shape: ILinkText) {
 		return new Rectangle2d({
 			width: shape.props.w,
 			height: shape.props.h,
@@ -47,7 +48,7 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 	}
 
 	// Render method — the React component that will be rendered for the shape
-	component(shape: ILinkDoc) {
+	component(shape: ILinkText) {
 		const theme = getDefaultColorTheme({ isDarkMode: this.editor.user.isDarkMode })
 
 		// Unfortunately eslint will think this is a class components
@@ -68,29 +69,27 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 				className='siyuan-doc-card'
 				style={{
 					padding: '12px',
-					overflow: 'hidden',
 					lineHeight: 1.2,
 					userSelect: 'none',
 					pointerEvents: 'all',
 					cursor: 'pointer',
-					backgroundColor: theme[shape.props.color].semi,
 					fontWeight: shape.props.weight,
 					fontSize: size,
 					color: theme[shape.props.color].solid,
 				}}
 			>
-				<SiyuanDocCard docId={shape.props.docId}></SiyuanDocCard>
+				<SiyuanLinkCard docId={shape.props.docId} text={shape.props.text}></SiyuanLinkCard>
 			</HTMLContainer>
 		)
 	}
 
 	// Indicator — used when hovering over a shape or when it's selected; must return only SVG elements here
-	indicator(shape: ILinkDoc) {
+	indicator(shape: ILinkText) {
 		return <rect width={shape.props.w} height={shape.props.h} />
 	}
 
 	// Events
-	override onResize: TLOnResizeHandler<ILinkDoc> = (shape, info) => {
+	override onResize: TLOnResizeHandler<ILinkText> = (shape, info) => {
 		return resizeBox(shape, info)
 	}
 }

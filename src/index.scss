@@ -11,6 +11,7 @@
   background-color: rgba(0,0,0,.5);
   padding: 4px 2px;
   border-radius: 2px;
+  z-index: 1;
 }
 
 .siyuan-doc-card .siyuan-doc-card-btn {
@@ -21,12 +22,20 @@
   display: block;
 }
 
+.siyuan-link-card {
+  color: var(--b3-protyle-inline-link-color);
+  cursor: pointer;
+}
+
 .tl-text-shape__wrapper[data-font='draw'] {
   font-family: chinese_draw !important;
 }
 
 .tl-container {
     z-index: 0;
+}
+.protyle-content > .whiteboard-component {
+  height: 100%;
 }
 
 .whiteboard-wrapper,

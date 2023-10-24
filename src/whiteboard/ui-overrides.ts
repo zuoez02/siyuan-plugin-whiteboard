@@ -1,4 +1,4 @@
-import { TLUiMenuGroup, TLUiOverrides, menuItem, toolbarItem } from '@tldraw/tldraw'
+import { TLUiOverrides } from '@tldraw/tldraw'
 
 // In order to see select our custom shape tool, we need to add it to the ui.
 
@@ -29,6 +29,16 @@ export const uiOverrides: TLUiOverrides = {
 			readonlyOk: false,
 			onSelect: () => {
 				editor.setCurrentTool('linkDoc')
+			},
+		}
+		tools.linkText = {
+			id: 'linkText',
+			icon: 'color',
+			label: 'linkText' as any,
+			kbd: 'c',
+			readonlyOk: false,
+			onSelect: () => {
+				editor.setCurrentTool('linkText')
 			},
 		}
 		return tools
