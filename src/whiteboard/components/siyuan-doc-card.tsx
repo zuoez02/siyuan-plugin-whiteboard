@@ -1,11 +1,13 @@
 import { getBlockByID, getBlockDom } from "@/api";
-import { Fragment, useEffect, useState } from "react";
-import { openTab } from 'siyuan';
+import { Fragment, useEffect, useRef, useState } from "react";
+import { openTab, Protyle } from 'siyuan';
 
 export function SiyuanDocCard(props) {
     const [header, setHeader] = useState('');
     const [content, setContent] = useState('');
     const [count, setCount] = useState(0);
+
+    const element = useRef<HTMLDivElement>();
 
     const openDoc = (docId) => {
         console.log(docId);
@@ -26,13 +28,19 @@ export function SiyuanDocCard(props) {
                 // document
                 setHeader(block.content);
             }
-            getBlockDom(docId).then(content => {
-                let dom = content.dom.replace(/contenteditable=\"true\"/g, '');
-                dom = dom.replace(/contenteditable=\"false\"/g, '');
-                dom = dom.replace(/contentEditable=\"true\"/g, '');
-                dom = dom.replace(/contentEditable=\"false\"/g, '');
-                setContent(dom);
-            })
+            new Protyle(window.siyuan.ws.app, element.current, {
+                blockId: props.docId,
+                mode: 'wysiwyg',
+                render: {
+                    background: false,
+                    title: false,
+                    gutter: false,
+                    scroll: false,
+                    breadcrumb: false,
+                    breadcrumbDocName: false,
+                },
+                typewriterMode: false,
+            });
         })
     }, [])
 
@@ -44,6 +52,6 @@ export function SiyuanDocCard(props) {
             // that should prevent shape selection or click and drag
             onPointerDown={(e) => e.stopPropagation()}>打开</div>
         <h2>{header}</h2>
-        <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div ref={element} id="protyle"></div>
     </Fragment>
 }
