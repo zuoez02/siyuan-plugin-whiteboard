@@ -52,34 +52,16 @@ export class LinkDocUtil extends ShapeUtil<ILinkDoc> {
 
 		// Unfortunately eslint will think this is a class components
 		// eslint-disable-next-line react-hooks/rules-of-hooks
-		let size;
-
-		switch(shape.props.size) {
-			case 's': size = 'small'; break;
-			case 'm': size = 'medium'; break;
-			case 'l': size = 'large'; break;
-			case 'xl': size = 'x-large'; break;
-			default: size = 'medium';
-		}
 
 		return (
 			<HTMLContainer
 				id={shape.id}
 				className='siyuan-doc-card'
 				style={{
-					padding: '12px',
-					overflow: 'hidden',
-					lineHeight: 1.2,
-					userSelect: 'none',
 					pointerEvents: 'all',
-					cursor: 'pointer',
-					backgroundColor: theme[shape.props.color].semi,
-					fontWeight: shape.props.weight,
-					fontSize: size,
-					color: theme[shape.props.color].solid,
 				}}
 			>
-				<SiyuanDocCard docId={shape.props.docId}></SiyuanDocCard>
+				<SiyuanDocCard docId={shape.props.docId} shape={shape} theme={theme}></SiyuanDocCard>
 			</HTMLContainer>
 		)
 	}

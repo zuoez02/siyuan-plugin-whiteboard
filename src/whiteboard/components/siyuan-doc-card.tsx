@@ -4,13 +4,13 @@ import { openTab, Protyle } from "siyuan";
 
 export function SiyuanDocCard(props) {
   const [header, setHeader] = useState("");
-  const [count, setCount] = useState(0);
 
   const element = useRef<HTMLDivElement>();
 
+  const shape = props.shape;
+  const theme = props.theme;
+
   const openDoc = (docId) => {
-    console.log(docId);
-    setCount(count + 1);
     openTab({
       app: window.siyuan.ws.app,
       doc: {
@@ -44,6 +44,25 @@ export function SiyuanDocCard(props) {
     });
   }, []);
 
+  let size;
+
+  switch (shape.props.size) {
+    case "s":
+      size = "small";
+      break;
+    case "m":
+      size = "medium";
+      break;
+    case "l":
+      size = "large";
+      break;
+    case "xl":
+      size = "x-large";
+      break;
+    default:
+      size = "medium";
+  }
+
   return (
     <Fragment>
       <div
@@ -55,10 +74,26 @@ export function SiyuanDocCard(props) {
       >
         打开
       </div>
-      {header && <h3 style={{ marginBottom: "8px" }}>{header}</h3>}
+      {header && (
+        <h3
+          style={{ marginBottom: "8px", color: theme[shape.props.color].solid }}
+        >
+          {header}
+        </h3>
+      )}
       <div
         style={{
           background: "transparent",
+          padding: "12px",
+          overflow: "hidden",
+          userSelect: "none",
+          pointerEvents: "all",
+          cursor: "pointer",
+          backgroundColor: theme[shape.props.color].semi,
+          fontWeight: shape.props.weight,
+          fontSize: size,
+          color: theme[shape.props.color].solid,
+          height: header ? shape.props.h - 20 : shape.props.h
         }}
         ref={element}
         id="protyle"

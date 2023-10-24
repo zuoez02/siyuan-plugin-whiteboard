@@ -46,8 +46,11 @@
 }
 
 .whiteboard-wrapper svg {
-  fill: none;
   display: initial;
+}
+
+.whiteboard-wrapper .protyle-wysiwyg span[data-type~=strong] {
+  color: currentColor;
 }
 
 .whiteboard-wrapper {
