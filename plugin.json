@@ -2,17 +2,17 @@
   "name": "siyuan-plugin-whiteboard",
   "author": "zuoez02",
   "url": "https://github.com/zuoez02/siyuan-plugin-whiteboard",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "minAppVersion": "2.10.11",
   "backends": ["all"],
   "frontends": ["all"],
   "displayName": {
-    "en_US": "Tldraw Whiteboard",
-    "zh_CN": "Tldraw白板"
+    "en_US": "Tldraw Whiteboard(Preview Version)",
+    "zh_CN": "Tldraw白板(预览版)"
   },
   "description": {
-    "en_US": "Whiteboard based on tldraw",
-    "zh_CN": "使用Tldraw构建的思源白板插件"
+    "en_US": "Whiteboard based on tldraw, preview version",
+    "zh_CN": "使用Tldraw构建的思源白板插件,目前为预览版"
   },
   "readme": {
     "en_US": "README.md",

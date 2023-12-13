@@ -101,7 +101,7 @@ export const Whiteboard = (props) => {
 
   return (
     <Fragment>
-      <div className="whiteboard-component">
+      <div className="whiteboard-component" style={{width: '100%', height: '100%'}}>
         <Tldraw
           onMount={setAppToState}
           persistenceKey={realName}

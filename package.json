@@ -28,8 +28,8 @@
     "vite-plugin-zip-pack": "^1.0.5"
   },
   "dependencies": {
-    "@tldraw/assets": "2.0.0-alpha.17",
-    "@tldraw/tldraw": "2.0.0-alpha.17",
+    "@tldraw/assets": "2.0.0-alpha.19",
+    "@tldraw/tldraw": "2.0.0-alpha.19",
     "@types/react": "^18.2.30",
     "@types/react-dom": "^18.2.14",
     "@vitejs/plugin-react": "^4.1.0",

@@ -1,8 +1,8 @@
-# 思源白板插件
+# 思源白板插件(预览版)
 
-基于tldraw的白板工具。
+> 基于tldraw的白板工具。
 
-Tldraw Version: 2.0.0-alpha.17
+Tldraw Version: 2.0.0-alpha.19
 
 ## 安装指南
 1. 从集市安装后开启此插件，重启或刷新思源后，可在左下角找到白板的Dock。
@@ -16,6 +16,10 @@ Tldraw Version: 2.0.0-alpha.17
 
 ---
 ## Changelog
+
+### v0.1.4
++ Upgrade to tldraw 2.0.0-alpha.19
++ 提升稳定性
 
 ### v0.1.3
 + 支持粘贴引用块和嵌入块。

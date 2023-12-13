@@ -22,10 +22,20 @@ export function initWhiteboardTab(plugin) {
     type: `whiteboard`,
     async init() {
       this.element.innerHTML =
-        '<div class="fn__flex fn__flex-1 fn__flex-column"><div style="border: none" class="whiteboard whiteboard-wrapper fn__flex fn__flex-1"></div></div>';
+        `<div class="fn__flex fn__flex-1 fn__flex-column"><div style="border: none" class="whiteboard whiteboard-wrapper fn__flex fn__flex-1"></div></div>`;
       const initData = await loadData(this.data.name);
+      const wrapper = this.element.querySelector(".whiteboard-wrapper") as HTMLElement;
+      const shadow = wrapper.attachShadow({ mode: 'open' });
+      const style = document.createElement('style');
+      fetch('/plugins/siyuan-plugin-whiteboard/index.css').then((res)=> res.text()).then((text) => {
+          style.innerText = text;
+      })
+      shadow.appendChild(style);
+      const rootEl = document.createElement('div');
+      rootEl.style.flex = 'auto';
+      shadow.appendChild(rootEl);
       const root = ReactDOM.createRoot(
-        this.element.querySelector(".whiteboard-wrapper")
+        rootEl
       );
       root.render(React.createElement(Tab, { initData, name: this.data.name, el: this.element }));
       this.data.destroy = () => {
