@@ -1,6 +1,6 @@
 {
   "name": "siyuan-plugin-whiteboard",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
   "description": "Siyuan whiteboard based on Tldraw",
   "repository": "https://github.com/zuoez02/siyuan-plugin-whiteboard",
@@ -20,7 +20,7 @@
     "minimist": "^1.2.8",
     "rollup-plugin-livereload": "^2.0.5",
     "sass": "^1.62.1",
-    "siyuan": "0.8.3",
+    "siyuan": "0.9.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "vite": "^4.3.7",
@@ -28,8 +28,8 @@
     "vite-plugin-zip-pack": "^1.0.5"
   },
   "dependencies": {
-    "@tldraw/assets": "2.0.0-alpha.19",
-    "@tldraw/tldraw": "2.0.0-alpha.19",
+    "@tldraw/assets": "2.0.0-beta.1",
+    "@tldraw/tldraw": "2.0.0-beta.1",
     "@types/react": "^18.2.30",
     "@types/react-dom": "^18.2.14",
     "@vitejs/plugin-react": "^4.1.0",

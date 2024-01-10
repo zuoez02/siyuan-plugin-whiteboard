@@ -27,8 +27,28 @@ export function initWhiteboardTab(plugin) {
       const wrapper = this.element.querySelector(".whiteboard-wrapper") as HTMLElement;
       const shadow = wrapper.attachShadow({ mode: 'open' });
       const style = document.createElement('style');
-      fetch('/plugins/siyuan-plugin-whiteboard/index.css').then((res)=> res.text()).then((text) => {
-          style.innerText = text;
+      fetch('/plugins/siyuan-plugin-whiteboard/index.css').then((res) => res.text()).then((text) => {
+        style.innerText = text;
+      })
+
+      document.head.querySelectorAll('link[rel=stylesheet]').forEach((link) => {
+        const href = link.getAttribute('href');
+        if (!href) {
+          return;
+        }
+        let url: string;
+        if (href.startsWith('base') && href.endsWith('.css')) {
+          url = window.location.pathname + '/' + href;
+        } else if (/^\S+base\.\S+\.css$/.test(href)) {
+          url = href;
+        } else {
+          return;
+        }
+        fetch(url).then((res) => res.text()).then((text) => {
+          let baseStyle = document.createElement('style');
+          baseStyle.innerText = text;
+          shadow.appendChild(baseStyle);
+        })
       })
       shadow.appendChild(style);
       const rootEl = document.createElement('div');

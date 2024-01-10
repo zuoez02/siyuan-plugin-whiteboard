@@ -39,7 +39,7 @@ export const Whiteboard = (props) => {
       e.store.listen(() => save(e));
 
       e.registerExternalContentHandler("text", ({ type, point, text }) => {
-        const center = point ?? e.viewportPageCenter;
+        const center = point ?? e.getViewportPageCenter();
         if (type === "text") {
           if (siyuanLinkRegex.test(text)) {
             const res = siyuanLinkRegex.exec(text);
