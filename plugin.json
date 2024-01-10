@@ -2,7 +2,7 @@
   "name": "siyuan-plugin-whiteboard",
   "author": "zuoez02",
   "url": "https://github.com/zuoez02/siyuan-plugin-whiteboard",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "minAppVersion": "2.10.11",
   "backends": ["all"],
   "frontends": ["all"],
