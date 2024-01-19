@@ -2,7 +2,7 @@
 
 > 基于tldraw的白板工具。
 
-Tldraw Version: 2.0.0-alpha.19
+Tldraw Version: 2.0.0-beta.1
 
 ## 安装指南
 1. 从集市安装后开启此插件，重启或刷新思源后，可在左下角找到白板的Dock。
@@ -16,6 +16,11 @@ Tldraw Version: 2.0.0-alpha.19
 
 ---
 ## Changelog
+### v0.1.8
++ 国际化增加英语支持
+
+### v0.1.7
++ Upgrade to tldraw 2.0.0-beta.1
 
 ### v0.1.4
 + Upgrade to tldraw 2.0.0-alpha.19

@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Dialog } from 'siyuan';
 import { DialogContent } from '../components/dialog-content';
+import { global } from './env';
 
 export const addWhiteboard = (callback) => {
   const d = new Dialog({
-    title: "创建白板",
+    title: global.plugin.i18n.createWhiteboard,
     content: `<div class="b3-dialog__content"><div id="create-whiteboard"></div></div>`,
     width: "520px",
   });
@@ -27,7 +28,7 @@ export const addWhiteboard = (callback) => {
 
 export const renameWhiteboard = (name, callback) => {
     const d = new Dialog({
-      title: "重命名白板",
+      title: global.plugin.i18n.renameWhiteboard,
       content: `<div class="b3-dialog__content"><div id="rename-whiteboard"></div></div>`,
       width: "520px",
     });

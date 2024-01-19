@@ -83,7 +83,7 @@ export async function initWhiteboardDock(plugin) {
       position: "LeftBottom",
       size: { width: 200, height: 0 },
       icon: "iconWhiteboard",
-      title: "白板",
+      title: plugin.i18n.title,
     },
     data: {
       files: props.files,

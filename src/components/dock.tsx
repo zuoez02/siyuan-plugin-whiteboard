@@ -39,7 +39,7 @@ export const Dock = (props) => {
 
   const handleDelete = (file, event) => {
     event.stopPropagation();
-    confirm("⚠警告: 白板", `确认删除${file}吗?`, () => {
+    confirm("⚠警告:"+ plugin.i18n.title, plugin.i18n.deleteConfirm.replace("${file}", file), () => {
       deleteDraw(file);
       files.splice(
         files.findIndex((i) => i === file),
@@ -72,7 +72,7 @@ export const Dock = (props) => {
         <span
           data-type="min"
           className="block__icon b3-tooltips b3-tooltips__sw"
-          aria-label="最小化"
+          aria-label={plugin.i18n.min}
         >
           <svg>
             <use xlinkHref="#iconMin"></use>
@@ -81,7 +81,7 @@ export const Dock = (props) => {
         <span
           id="add-draw"
           className="block__icon b3-tooltips b3-tooltips__sw"
-          aria-label="新建"
+          aria-label={plugin.i18n.create}
           onClick={() => add()}
         >
           <svg>
@@ -91,7 +91,7 @@ export const Dock = (props) => {
         <span
           id="refresh"
           className="block__icon b3-tooltips b3-tooltips__sw"
-          aria-label="刷新"
+          aria-label={plugin.i18n.refresh}
           onClick={() => handleRefresh()}
         >
           <svg>
@@ -106,7 +106,7 @@ export const Dock = (props) => {
               <span onClick={() => handleOpen(file)}>{file}</span>
               <span
                 className="fileicon editfile b3-tooltips b3-tooltips__s"
-                aria-label="修改"
+                aria-label={plugin.i18n.edit}
                 data-name={file}
                 onClick={(e) => handleEdit(file, e)}
               >
@@ -116,7 +116,7 @@ export const Dock = (props) => {
               </span>
               <span
                 className="fileicon copyfile b3-tooltips b3-tooltips__s"
-                aria-label="复制链接"
+                aria-label={plugin.i18n.copyLink}
                 data-name={file}
                 onClick={(e) => handleCopy(file, e)}
               >
@@ -126,7 +126,7 @@ export const Dock = (props) => {
               </span>
               <span
                 className="fileicon deletefile b3-tooltips b3-tooltips__s"
-                aria-label="删除"
+                aria-label={plugin.i18n.delete}
                 data-name={file}
                 onClick={(e) => handleDelete(file, e)}
               >
@@ -136,7 +136,7 @@ export const Dock = (props) => {
               </span>
             </div>
           );
-        }) || <div style={{ margin: "0 12px" }}>无数据</div>}
+        }) || <div style={{ margin: "0 12px" }}>{plugin.i18n.empty}</div>}
       </div>
     </div>
   );

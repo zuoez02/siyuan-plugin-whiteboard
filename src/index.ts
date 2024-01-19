@@ -21,7 +21,7 @@ export default class WhiteboardPlugin extends Plugin {
         initWhiteboardDock(this);
         this.tab = initWhiteboardTab(this);
 
-        this.eventBus.on('loaded-protyle', async (e) => {
+        const loadWhiteboard = async (e) => {
             const wb = e.detail?.background?.ial['custom-whiteboard-id'];
             if (wb) {
                 const element = e.detail.contentElement;
@@ -31,7 +31,9 @@ export default class WhiteboardPlugin extends Plugin {
                 );
                 root.render(React.createElement(Tab, { initData, name: wb, el: element }));
             }
-        })
+        };
+        this.eventBus.on('loaded-protyle-dynamic', loadWhiteboard);
+        this.eventBus.on('loaded-protyle-static', loadWhiteboard);
     }
 
     open(name) {
