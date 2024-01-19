@@ -1,0 +1,20 @@
+{
+    "title": "Pizarra Tldraw",
+    "min": "Min",
+    "create": "Crear",
+    "createWhiteboard": "Crear Pizarra",
+    "renameWhiteboard": "Renombrar Pizarra",
+    "refresh": "Actualizar",
+    "copyLink": "Copiar como enlace",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "empty": "Vacío",
+    "deleteWarn": "⚠Advertencia:",
+    "deleteConfirm": "¿Estás seguro de eliminar el archivo: ${file}?",
+    "nameIsInvalid": "Nombre: ${name} no es válido",
+    "form": {
+        "name": "Nombre",
+        "nameDesc": "El nombre es el nombre del archivo, no debe contener caracteres especiales como /,*,$, etc.",
+        "save": "Guardar"
+    }
+}

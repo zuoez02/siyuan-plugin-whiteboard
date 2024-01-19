@@ -8,15 +8,18 @@
   "frontends": ["all"],
   "displayName": {
     "en_US": "Tldraw Whiteboard(Preview Version)",
+    "es_ES": "Plugin de Pizarra SiYuan (Versión de vista previa)",
     "zh_CN": "Tldraw白板(预览版)"
   },
   "description": {
     "en_US": "Whiteboard based on tldraw, preview version",
+    "es_ES": "Plugin de Pizarra SiYuan (Versión de vista previa)",
     "zh_CN": "使用Tldraw构建的思源白板插件,目前为预览版"
   },
   "readme": {
     "en_US": "README.md",
-    "zh_CN": "README_zh_CN.md"
+    "zh_CN": "README_zh_CN.md",
+    "es_ES": "README_es_ES.md"
   },
   "funding": {
     "custom": [

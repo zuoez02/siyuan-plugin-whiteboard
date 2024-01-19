@@ -39,7 +39,7 @@ export const Dock = (props) => {
 
   const handleDelete = (file, event) => {
     event.stopPropagation();
-    confirm("⚠警告:"+ plugin.i18n.title, plugin.i18n.deleteConfirm.replace("${file}", file), () => {
+    confirm(plugin.i18n.deleteWarn + ":" + plugin.i18n.title, plugin.i18n.deleteConfirm.replace("${file}", file), () => {
       deleteDraw(file);
       files.splice(
         files.findIndex((i) => i === file),
@@ -53,7 +53,6 @@ export const Dock = (props) => {
     event.stopPropagation();
     rename(file);
   };
-
   const handleRefresh = async () => {
     const files = await loadAllFiles();
     setFiles(files);
@@ -66,7 +65,7 @@ export const Dock = (props) => {
           <svg>
             <use xlinkHref="#iconWhiteboard"></use>
           </svg>
-          Whiteboard
+          {plugin.i18n.title}
         </div>
         <span className="fn__flex-1 fn__space"></span>
         <span
