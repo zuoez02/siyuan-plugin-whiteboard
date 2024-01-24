@@ -16,6 +16,9 @@ Tldraw Version: 2.0.0-beta.1
 
 ---
 ## Changelog
+### v0.1.9
++ Support v2.12.4
+
 ### v0.1.8
 + 国际化增加英语支持
 

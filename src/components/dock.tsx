@@ -62,7 +62,7 @@ export const Dock = (props) => {
     <div className="fn__flex-1 fn__flex-column">
       <div className="block__icons">
         <div className="block__logo">
-          <svg>
+          <svg className="block__logoicon">
             <use xlinkHref="#iconWhiteboard"></use>
           </svg>
           {plugin.i18n.title}
